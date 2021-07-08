@@ -1,16 +1,15 @@
-console.log("Iniciando API")
-
 const express = require("express")
 const server = express()
 
-const teste = require("./testeController")
-server.use(teste)
+const cors = require('cors')
+server.use(cors())
+
+const router = require('./routes')
+server.use(router)
 
 const port = process.env.PORT | 8080
-server.listen(
-    port,
-    () => console.log(`API iniciada na PORTA ${port}`)
+server
+    .listen(port,
+        () => console.log(`Server is up and running in port ${port}`)
 )
-
-//$env:PORT=8081 (Cria uma variável de ambiente - powershell)
-//set PORT=8081 (Cria uma variável de ambiente - cmd)
+//mongodb+srv://thomaz:spy@cluster0.mjcbg.mongodb.net/
