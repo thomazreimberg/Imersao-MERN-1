@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import Routes from './Routes'
+
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Olá</h1>
+    <Routes />
   </React.StrictMode>,
   document.getElementById('root')
 );

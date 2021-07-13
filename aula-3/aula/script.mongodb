@@ -1,0 +1,16 @@
+
+
+db.sessao.aggregate([
+    {$match:{data: { $gt : new Date().toISOString() }}},
+    { $group: {
+     _id: {
+    $add: [
+    { $dayOfYear: "$data"},
+    { $multiply:
+    [400, {$year: "$data"}]
+    }
+    ]},
+    {$sort: {data: 1}},
+    {$project:{data: 1, _id: 0}},
+    {$limit: 7}
+])
